@@ -3,6 +3,7 @@ package com.test.api.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +19,12 @@ public class LoginController {
 	
 	@Autowired
     private UserAccountRepository userAccountRepository;
-
-
+	
+	@GetMapping("/welcome")
+    public String getBook() {
+        return "Welcome to Login API";
+    }
+    
 	@PostMapping("/{type}")
     public ResponseEntity<String> login(@PathVariable String type, @RequestBody UserAccount user) {
         // You can use the 'type' variable to handle different types of logins
@@ -35,6 +40,18 @@ public class LoginController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed: Invalid username or password");
         }
     }
+	
+	 @PostMapping("/register")
+	    public ResponseEntity<String> register(@RequestBody UserAccount newUser) {
+	        // Check if username is already taken
+	        if (userAccountRepository.findByUserName(newUser.getUserName()) != null) {
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Registration failed: Username is already taken");
+	        }
+
+	        // Save the new user
+	        userAccountRepository.save(newUser);
+	        return ResponseEntity.ok("Registration Successful");
+	    }
 	
 	
 }

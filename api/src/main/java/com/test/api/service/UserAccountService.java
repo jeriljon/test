@@ -1,5 +1,6 @@
 package com.test.api.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -18,5 +19,9 @@ public class UserAccountService {
 
     public Optional<UserAccount> getUserById(Long id) {
         return userAccountRepository.findById(id);
+    }
+    
+    public List<UserAccount> getAllUsers() {
+        return userAccountRepository.findAll();
     }
 }
