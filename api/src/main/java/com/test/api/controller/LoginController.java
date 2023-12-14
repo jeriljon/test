@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.test.api.model.ApiResponse;
 import com.test.api.model.UserAccount;
 import com.test.api.repository.UserAccountRepository;
 
@@ -26,7 +27,7 @@ public class LoginController {
     }
     
 	@PostMapping("/{type}")
-    public ResponseEntity<String> login(@PathVariable String type, @RequestBody UserAccount user) {
+    public ResponseEntity<ApiResponse> login(@PathVariable String type, @RequestBody UserAccount user) {
         // You can use the 'type' variable to handle different types of logins
         System.out.println("Login type: " + type);
 
@@ -35,22 +36,26 @@ public class LoginController {
 
         // Check if user exists and password matches
         if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
-            return ResponseEntity.ok("Login Successful");
+            return ResponseEntity.ok(new ApiResponse("Login Successful"));
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed: Invalid username or password");
-        }
+            return ResponseEntity
+                    .status(HttpStatus.UNAUTHORIZED)
+                    .body(new ApiResponse("Login failed: Invalid username or password"));
+            }
     }
 	
 	 @PostMapping("/register")
-	    public ResponseEntity<String> register(@RequestBody UserAccount newUser) {
+	    public ResponseEntity<ApiResponse> register(@RequestBody UserAccount newUser) {
 	        // Check if username is already taken
 	        if (userAccountRepository.findByUserName(newUser.getUserName()) != null) {
-	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Registration failed: Username is already taken");
+	        	return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(new ApiResponse("Registration failed: Username is already taken"));
 	        }
 
 	        // Save the new user
 	        userAccountRepository.save(newUser);
-	        return ResponseEntity.ok("Registration Successful");
+	        return ResponseEntity.ok(new ApiResponse("Login Successful"));
 	    }
 	
 	

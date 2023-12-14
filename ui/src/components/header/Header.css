@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #ffffff; /* or any color you prefer */
+    box-sizing: border-box;
+}
+
+.company-title {
+    font-family: 'Sans Serif', sans-serif;
+    font-size: 24px; /* Adjust the size as needed */
+    font-weight: bold;
+    color: #333333; /* Adjust the color as needed */
+    cursor: pointer;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a {
+    margin: 0 15px; /* Adjust spacing between links */
+    text-decoration: none;
+    color: #333333; /* Adjust link color as needed */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.navigation a:hover {
+    color: #007bff; /* Adjust hover color as needed */
+}
+
+.profile-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Additional styling for Material UI icon if needed */
+.profile-icon svg {
+    font-size: 24px; /* Adjust icon size as needed */
+    color: #333333; /* Adjust icon color as needed */
+}

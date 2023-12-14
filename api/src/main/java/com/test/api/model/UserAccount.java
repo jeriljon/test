@@ -13,11 +13,13 @@ public class UserAccount {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+	private String email;
     private String userName;
     private String password;
 
-    public UserAccount(long id, String userName, String password) {
+    public UserAccount(long id, String email, String userName, String password) {
         this.id = id;
+        this.email = email;
         this.userName = userName;
         this.password = password;
     }
@@ -32,8 +34,16 @@ public class UserAccount {
     public void setId(long id) {
         this.id = id;
     }
+    
+    public String getEmail() {
+		return email;
+	}
 
-    public String getUserName() {
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUserName() {
         return userName;
     }
 

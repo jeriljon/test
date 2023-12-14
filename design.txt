@@ -1,0 +1,156 @@
+test app
+
+ui: 
+2 pages: 
+login page
+landing page
+
+login page: 
+user can register
+user can login
+
+api: 
+AuthService
+/register
+/login
+
+database: 
+account
+
+Revised design, Thursday, 12./14/2023
+
+Currently I have below Login, Register and Home Page components. 
+I want to revamp and alter these components to give it more pages/features based on below specifications.
+I have below pages/components for the web site.
+1. HEADER [common for all pages]
+2. FOOTER [common for all pages]
+3. LOGIN/REGISTER MODAL 
+4. LANDING PAGE
+5. HOME PAGE
+6. ABOUT US
+7. INDUSTRIES
+8. SERVICES
+9. MY ACCOUNT (only for logged in users)
+10. CONTACT US
+
+Common aspects: 
+Header and Footer will be common across all pages
+
+HEADER:  
+1. I want a standard Header that takes only 5% of the total view port from the top of the web page. 
+2. I want Company Title "TANGOSEED" in full caps, on the left side of the Header. 
+3. I want the Company title to be bold in a FONT where the letters are San Serif sans but letters 
+are in dark grey. 
+4. I want the header to have white background.
+5. I want a profile icon on the far right of the header. 
+5. When user is not logged and user clicks on profile icon, drop down is displayed with one option: login
+6. When user clicks on login drop down option, it opens LOGIN/REGISTER MODAL with below layout.
+
+LOGIN/REGISTER MODAL layout
+
+Login: 
+Username [textbox field]
+Password [textbox field]
+Submit button
+Once login submitted, navigate to MY ACCOUNT page. 
+
+Register: 
+Email: [textbox field]
+Username: [textbox field]
+Password: [textbox field]
+Submit button 
+Once Register submitted, display message on modal "Registration successful"
+
+FOOTER: 
+1. I want a standard footer with a dark grey background which takes bottom 15% of the 
+total view port of the page.
+2. I want Company Title "TANGOSEED" in full caps, on the left side of the footer with a white 
+colored font of San Serif sans in bold. 
+
+1. LANDING PAGE: 
+Other than Header and footer, landing page should have a banner as below. 
+
+Banner: 
+1. I want a banner which says, In Bold Garamond the text: "Unlock the Power of Technology", 
+with text size 36px.
+2. I want the banner to be blue color with a fade gradient from dark blue to light from right to left.
+3. I want the text of the banner to be in White color
+4. Below the Banner text, I want a hyperlink with text: Know more
+5. When user clicks on "Know more" hyperlink, open the page: SERVICES
+6. Banner takes 30% of the view port of the LANDING PAGE.
+
+Content area: Central section of the page which takes 50% of the view port of the page. 
+[leave it blank for now. This is where I will have the popular topics tiles.]
+
+2. HOME PAGE
+This pager will just have Header, Footer and Content area. Keep content area empty for now. 
+
+3. ABOUT US
+This pager will just have Header, Footer and Content area. Keep content area empty for now.
+
+4. INDUSTRIES
+This pager will just have Header, Footer and Content area. Keep content area empty for now.
+
+5. SERVICES
+This pager will just have Header, Footer and Content area. Keep content area empty for now.
+
+6. MY ACCOUNT (only for logged in users)
+This pager will just have Header, Footer and Content area. Keep content area empty for now.
+
+7. CONTACT US
+This pager will just have Header, Footer and Content area. Keep content area empty for now.
+
+Please provide full React code and css styling for all the pages above. 
+
+I want to update the LandingPage, Header. LoginRegister Modal components. 
+
+Header changes: 
+I want the header to be in a box. 
+I want the header to list the below items with a clickable link to those pages, when user clicks on the text
+# ABOUT US
+# INDUSTRIES
+# SERVICES
+# CONTACT US
+I want a profile icon on the far right of the header. 
+When user is not logged and user clicks on profile icon, drop down is displayed with one option: login
+When user clicks on login drop down option, it opens LOGIN/REGISTER MODAL with below layout.
+
+LOGIN/REGISTER MODAL layout
+
+Login: 
+Username [textbox field]
+Password [textbox field]
+Submit button
+Once login submitted, navigate to MY ACCOUNT page. 
+
+Register: 
+Email: [textbox field]
+Username: [textbox field]
+Password: [textbox field]
+Submit button 
+Once Register submitted, display message on modal "Registration successful"
+
+Update LoginModal Component with below changes. 
+For login, make API call to localhost:8080/api/login/admin
+with sample request body: 
+{
+    "userName": "Truman",
+    "password": "Truman123"
+}
+If login is successful, navigate to MYACCOUNT page. 
+If login api call response is not successful, display error message in red, "Login Failed"
+
+For register event, make API call to localhost:8080/api/login/register
+with sample request body: 
+{
+    "email": "chris@gmail.com",
+    "userName": "Chris",
+    "password": "Chris123"
+}
+
+If register is successful, display message "Registration successful"
+If register api response is not successful, display message "Registration failed. Please try again. "
+
+{
+    "message": "Login Successful"
+}
