@@ -10,7 +10,7 @@ function Footer() {
                 TANGOSEED 
             </div>
             <div className="footer-text" onClick={() => navigate('/')}>
-                © 2017-2023 Tangoseed LLC 
+            &nbsp; © 2017-2023 Tangoseed LLC 
             </div>
         </footer>
     );

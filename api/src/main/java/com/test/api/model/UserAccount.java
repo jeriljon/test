@@ -1,5 +1,7 @@
 package com.test.api.model;
 
+import java.time.OffsetDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,12 +18,14 @@ public class UserAccount {
 	private String email;
     private String userName;
     private String password;
+    private OffsetDateTime createdOn;
 
-    public UserAccount(long id, String email, String userName, String password) {
+    public UserAccount(long id, String email, String userName, String password, OffsetDateTime createdOn) {
         this.id = id;
         this.email = email;
         this.userName = userName;
         this.password = password;
+        this.createdOn = createdOn;
     }
 
     public UserAccount() {
@@ -58,4 +62,14 @@ public class UserAccount {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public OffsetDateTime getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(OffsetDateTime createdOn) {
+		this.createdOn = createdOn;
+	}
+    
+    
 }

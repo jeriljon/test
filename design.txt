@@ -154,3 +154,26 @@ If register api response is not successful, display message "Registration failed
 {
     "message": "Login Successful"
 }
+
+Tangoseed is focussed on serving clients from various industries below. 
+Life Sciences & Healthcare
+Technology, Media & Telecom
+Financial Services
+Energy & Industrials
+
+<div className="services-container">
+                <div className="services-content">
+                    Tangoseed offers experienced and comprehensive help for a wide range of business needs, and 
+					can help you to work smarter and reach your goals. 
+					Have a look at the professional services Tangoseed offers, and let's talk.
+                    <p>
+                        <ul>
+                            <li>Technology Consulting Services</li>
+                            <li>Audit & Assurance</li>
+                            <li>Sustainability & Climate Change</li>
+                            <li>Workforce</li>
+                            <li>Deals Advisory Services</li>
+                        </ul>
+                    </p> 
+                </div>
+            </div>

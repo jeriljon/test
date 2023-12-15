@@ -1,0 +1,19 @@
+.industries-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px; /* Adjust as needed */
+}
+
+.industries-content {
+    max-width: 800px; /* Adjust as needed */
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f8f8; /* Adjust background color as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional */
+    border-radius: 10px; /* Optional */
+    text-align: justify; /* For better readability */
+    font-family: 'Sans Serif', sans-serif;
+    font-size: 18px; /* Adjust the size as needed */
+    font-weight: normal;
+    color: #333333;
+}

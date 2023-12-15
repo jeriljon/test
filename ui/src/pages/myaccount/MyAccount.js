@@ -4,11 +4,19 @@ import Footer from '../../components/footer/Footer';
 import Banner from '../../components/banner/Banner'
 
 function MyAccountPage () {
+    const user = JSON.parse(sessionStorage.getItem('user')) || {};
+
     return (
         <div>
             <Header />
             <Banner />
-            <div>This is my Account Page ...</div>
+            <div className="myaccount-container">
+                <div className="myaccount-content">
+                    <h3>Account Details</h3>
+                    <p>Username: {user.username}</p>
+                    <p>Email ID: {user.email}</p>
+                </div>
+            </div>
             <Footer />
         </div>
     );

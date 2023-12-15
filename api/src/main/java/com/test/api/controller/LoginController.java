@@ -1,5 +1,8 @@
 package com.test.api.controller;
 
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,9 +56,11 @@ public class LoginController {
                 .body(new ApiResponse("Registration failed: Username is already taken"));
 	        }
 
+	        newUser.setCreatedOn(OffsetDateTime.now(ZoneOffset.UTC)); // Set the current UTC time
+	        
 	        // Save the new user
 	        userAccountRepository.save(newUser);
-	        return ResponseEntity.ok(new ApiResponse("Login Successful"));
+	        return ResponseEntity.ok(new ApiResponse("Registration Successful for user: " + newUser.getUserName()));
 	    }
 	
 	

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './LoginRegisterModal.css';
 
-const LoginRegisterModal = ({ closeModal }) => {
+const LoginRegisterModal = ({ closeModal, onUserLogin }) => {
     const [isLogin, setIsLogin] = useState(true);
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -44,6 +44,8 @@ const LoginRegisterModal = ({ closeModal }) => {
                 if (isLogin) {
                     console.log('Inside response.ok, isLogin: ', isLogin)
                     console.log('Navigating to MyAccount page: ', isLogin)
+                    onUserLogin({ username: formData.userName, email: formData.email });
+                    sessionStorage.setItem('user', JSON.stringify({ username: formData.userName, email: formData.email })); // Store user in session storage
                     navigate('/myaccount');
                 } else {
                     console.log('Inside response.ok, else, isLogin: ', isLogin)
